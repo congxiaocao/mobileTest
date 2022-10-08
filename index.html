@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>树形结构</title>
+    <!-- import css -->
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/zTreeStyle.css">
+</head>
+
+<body>
+    <ul class="ztree" id="zTree1">
+        <li>前端开发基础
+            <ul>
+                <li>HTML5基础知识
+                    <ul>
+                        <li>新增语义化标签</li>
+                        <li>表单元素新特性</li>
+                        <li>音视频处理</li>
+                        <li>canvas和webGL</li>
+                        <li>新增JS中的API</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- import js -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.ztree.all.min.js"></script>
+    <script>
+        let options = {};
+        $.ajax({
+            method: 'get',
+            url: './data.json',
+            success: result => {
+                $.fn.zTree.init($('#zTree1'), options, result);
+            }
+        });
+    </script>
+</body>
+
+</html>
